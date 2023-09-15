@@ -1,0 +1,386 @@
+$color_blue: #282f44 
+$color_brown: #e6af2e 
+$color_yellow: #f5d061 
+$color_white: #ececec
+
+@mixin size($w,$h)
+  width: $w
+  height: $h
+  
+@mixin center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+
+*
+ font-family: 'Alegreya', 'ZCOOL KuaiLe', '微軟正黑體'
+ // border: solid 1px
+
+
+// section, header, footer
+//   display: none
+// #section_contact
+//   display: block
+
+
+body, html
+  // 之後會用margin做動畫
+  // 讓超出範圍不出現卷軸
+  // ovh
+  overflow-x: hidden
+  width: 100%
+  padding: 0px
+  margin: 0px
+
+//--------------------------------------------------------------
+nav.navbar.navbar-dark
+  background-color: transparent
+  border-bottom: solid 1px $color_white
+  transition: 0.3s
+  a, a:visited, .nav-link, a.navbar-brand
+    transition: 0.3s
+    color: $color_white
+    &:hover
+      color: $color_brown
+nav.navbar.navbar-light
+  background-color: $color_white
+  
+  // css中常用到的超連結屬性
+  // a:link 未連結的狀態
+  // a:visited 已連結過的狀態
+  // a:hover 滑鼠移到超連結上的狀態
+  // a:active 按下後的狀態
+  // a:link => a:visited => a:hover => a:active
+  a, a:visited, .nav-link, a.navbar-brand
+    transition: 0.3s
+    color: $color_blue
+    &:hover
+      color: $color_brown
+      
+
+  
+  
+//--------------------------------------------------------------
+header
+ background-color: $color_blue
+ position: relative
+ text-align: center
+ padding: 100px 0px
+
+ .mountain
+  position: absolute
+  z-index: 5
+  width: 100%
+  bottom: -5px
+  left: 60px
+ 
+ .bro
+  width: 80%
+  max-width: 300px
+  padding: 150px 0px
+ 
+ .explore
+  color: #f5d061
+  transition: 0.3s
+  font-size: 14px
+  font-weight: 500
+  +center
+  top: 85%
+  opacity: 0
+  
+  &::after
+   content: "v"
+   display: block
+   transform: scale(1,0.6)
+   line-height: 12px
+  &.opa
+    opacity: 1
+    animation: explore 2s linear infinite
+    
+    
+@keyframes explore
+  0%
+    opacity: 1
+    top: 85%
+  50%
+    opacity: 0.5
+    top: 88%
+  100%
+    opacity: 0
+    top: 90%
+
+
+//---------------------------------------------------------------------
+section
+  padding: 100px 0px
+  position: relative
+
+
+  
+  
+  
+//----------------------------------------------------------------------
+section#section_about
+  background-color: $color_brown
+  .container
+    // border: solid 1px
+    .col-md-12
+      text-align: center
+    h1
+      font-size: 50px
+      margin-bottom: 30px
+    h3
+      margin-top: 10px
+    h3.col-md-12
+      margin-top: 30px
+      cursor: pointer
+      z-index: 10
+      transition: 0.3s
+      &:active
+        font-size: 50px      
+    .right
+      text-align: right
+    .line1
+      transition: 0.2s
+      transform: rotate(6deg)
+    .line2
+      transition: 0.1s
+      transform: rotate(6deg)
+    .line3
+      transition: 0.1s
+      transform: rotate(-6deg)
+    .line4
+      transition: 0.2s
+      transform: rotate(-6deg)
+    .line5
+      transition: 0.3s
+      transform: rotate(-6deg)
+    
+      
+
+  .mountain2
+    position: absolute
+    top: calc(100% - 10px)
+    width: 100%
+    z-index: 5
+    left: -10px
+    transition: 0.2s
+  
+  
+//----------------------------------------------------------------------
+section#section_player
+  background-color: $color_white
+  .col-lg-2
+    height: 480px
+    background-size: cover
+    background-position: center
+    position: relative
+    cursor: pointer
+    h5
+      text-align: center
+      +center
+      color: $color_white
+      z-index: 11
+      font-size: 16px
+      opacity: 0
+      transition: 0.3s
+      
+    &::before
+      +size(100%,100%)
+      +center
+      content: ""
+      display: block
+      background-color: rgba(0,0,0,0.7)
+      z-index: 10
+      opacity: 0
+      transition: 0.3s
+    &:hover
+      &::before, h5
+        opacity: 1
+
+  .lu
+    background-image: url(https://www.cpbl.com.tw/files/file_pool/1/0m304837308232184294/069a8752_1.jpg)
+  .bo
+    background-image: url(https://cdn.ttv.com.tw/manasystem/FileData/News/d749fec3-b58a-4eeb-9339-feac97783c26.jpg)
+  .cute
+    background-image: url(https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/2022/05/10/0/16973357.jpg&x=0&y=0&sw=0&sh=0&sl=W&fw=800&exp=3600&w=930)
+    background-position: -200px
+  .junior
+    background-image: url(https://cdn.sportz.im/160568215_459975168391525_2578011916337587565_n-1.jpg)
+  .prince
+    background-image: url(https://images.chinatimes.com/newsphoto/2021-07-16/656/20210716005651.jpg)
+    // background-position: -10px
+  .burst
+    background-image: url(https://s.yimg.com/ny/api/res/1.2/g03I52sa2SnRc_UTETXTPQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ3MA--/https://media.zenfs.com/ko/tsna.com.tw/ea43facad94a177fc1bd151ef4ae2b73)
+  
+    
+  
+    
+    
+  
+//----------------------------------------------------------------------
+section#section_star
+  background-color: $color_blue
+  position: relative
+  color: $color_white
+  padding: 100px 0px
+  .container
+    height: 400px
+    position: relative
+
+    img
+      position: absolute
+    .cha1
+      border: solid 10px $color_blue
+      border-radius: 50%
+      right: -5%
+      width: 300px
+      bottom: -50%
+      z-index: 5
+    .cha2
+      bottom: -20%
+      left: -20%
+      width: 500px
+    .name
+      font-size: 80px
+      color: $color_yellow
+      text-align: center
+      margin-bottom: 50px
+      
+    .col-6.offset-2
+      text-align: center
+
+    .col-3
+      text-align: center
+    .fav
+      position: absolute
+      bottom: 0
+      text-align: center
+      font-size: 16px
+      left: 50%
+      transform: translateX(-50%)
+
+
+    .chainfo
+      font-size: 20px
+
+    
+    
+    
+  
+//----------------------------------------------------------------------  
+section#section_contact
+  background-color: $color_white
+  .container
+    height: 300px
+    .title
+      text-align: center
+    .logo
+      width: 700px
+      text-align: center
+      padding: 50px 0px
+      cursor: pointer
+      position: absolute
+      transform: translateX(-50%)
+      left: 50%
+      z-index: 6
+      .el, .mo
+        display: inline-block
+        vertical-align: top
+        img
+          cursor: pointer
+          width: 200px
+          padding: 0px 20px
+          
+          &:hover
+            border-bottom: solid 5px rgba($color_yellow,0.5)
+            box-shadow: 0px 10px 15px -8px rgba($color_yellow,0.5)
+
+
+
+
+  .mountain
+    position: absolute
+    top: calc(100% - 5px)
+    z-index: 5
+    // width: 800px
+    
+  
+    
+//----------------------------------------------------------------------  
+footer#footer
+  background-color: $color_brown
+  position: relative
+  text-align: center
+  padding-top: 200px
+  padding-bottom: 20px
+
+  img.ele
+    width: 100px
+    
+.ball
+    +size(30px,30px)
+    opacity: 0
+    position: absolute
+    z-index: 5
+    background-color: $color_white
+    border-radius: 100%
+    overflow: hidden
+    box-shadow: 2px 2px 15px -2px
+    // box-shadow : x 軸 | y 軸| 模糊半徑 | 擴散距離 | 顏色 |
+    +center
+    &::before, &::after
+      content: ""
+      display: block
+      +size(30px,30px)
+      border-radius: 100%
+      position: absolute
+    &::before
+      border-left: solid 2px #eb282f
+      left: 20px
+      top: 2px
+      
+    &::after
+      border-right: solid 2px #eb282f
+      left: -70%
+      top: 2px
+    
+
+    
+@media screen and (max-width: 991px)
+  section#section_star  
+    .container
+      .cha1
+        right: -15%
+        width: 200px
+        z-index: 5
+        bottom: -40%
+      .cha2
+        left: -30%
+        width: 400px
+  section#section_player
+    .col-12
+      height: 600px
+      h5
+        font-size: 25px
+    .cute
+      background-position: 0px
+  section#section_contact
+    
+@media screen and (max-width: 900px)
+  section#section_star  
+    .container
+      .cha1
+        right: 0
+        width: 200px
+        z-index: 5
+        bottom: -40%
+      .cha2
+        left: -15%
+        width: 400px
+@media screen and (max-width: 780px)
+  section#section_about
+    .container
+      .right
+        text-align: center
